@@ -11,6 +11,7 @@ Index of this file:
 // [SECTION] Forward declarations
 // [SECTION] Context pointer
 // [SECTION] STB libraries includes
+// [SECTION] Stack Layout includes
 // [SECTION] Macros
 // [SECTION] Generic helpers
 // [SECTION] ImDrawList support
@@ -218,6 +219,32 @@ typedef int ImGuiWindowRefreshFlags;    // -> enum ImGuiWindowRefreshFlags_ // F
 
 #ifndef GImGui
 extern IMGUI_API ImGuiContext* GImGui;  // Current implicit context pointer
+#endif
+
+//-------------------------------------------------------------------------
+// [SECTION] STB libraries includes
+//-------------------------------------------------------------------------
+
+namespace ImStb
+{
+
+#undef IMSTB_TEXTEDIT_STRING
+#undef IMSTB_TEXTEDIT_CHARTYPE
+#define IMSTB_TEXTEDIT_STRING             ImGuiInputTextState
+#define IMSTB_TEXTEDIT_CHARTYPE           ImWchar
+#define IMSTB_TEXTEDIT_GETWIDTH_NEWLINE   (-1.0f)
+#define IMSTB_TEXTEDIT_UNDOSTATECOUNT     99
+#define IMSTB_TEXTEDIT_UNDOCHARCOUNT      999
+#include "imstb_textedit.h"
+
+} // namespace ImStb
+
+//-------------------------------------------------------------------------
+// [SECTION] Stack Layout includes
+//-------------------------------------------------------------------------
+
+#if IMGUI_HAS_STACK_LAYOUT
+# include "imgui_stacklayout_internal.h"
 #endif
 
 //-----------------------------------------------------------------------------
