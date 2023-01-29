@@ -22,7 +22,6 @@ project "ImGui"
         "imstb_textedit.h",
 
         "imgui.cpp",
-        "imgui_freetype.cpp",
         "imgui_demo.cpp",
         "imgui_draw.cpp",
         "imgui_tables.cpp",
