@@ -23,7 +23,7 @@ project "ImGui"
 
         -- Backends
         "backends/imgui_impl_glfw.h",
-        "backends/imgui_impl_glfw.cpp"
+        "backends/imgui_impl_glfw.cpp",
 
         "backends/imgui_impl_vulkan.h",
         "backends/imgui_impl_vulkan.cpp"
