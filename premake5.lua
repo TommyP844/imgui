@@ -4,6 +4,11 @@ project "ImGui"
 	location ""
 	cppdialect "C++17"
 	
+    includedirs
+    {
+        "."
+    }
+
 	files
 	{
         "imgui.h",
