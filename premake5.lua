@@ -6,7 +6,9 @@ project "ImGui"
 	
     includedirs
     {
-        "."
+        ".",
+        "C:/VulkanSDK/1.3.231.1/Include",
+        "../../glfw/include"
     }
 
 	files
@@ -33,6 +35,12 @@ project "ImGui"
         "backends/imgui_impl_vulkan.h",
         "backends/imgui_impl_vulkan.cpp"
 	}
+
+    links
+    {
+        "glfw",
+        "C:/VulkanSDK/1.3.231.1/Lib/vulkan-1.lib"
+    }
 
 	optimize "Speed"
 	floatingpoint "Fast"
