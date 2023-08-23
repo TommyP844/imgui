@@ -7,7 +7,7 @@ project "ImGui"
     includedirs
     {
         ".",
-        "C:/VulkanSDK/1.3.231.1/Include",
+        "%VULKAN_SDK%/Include",
         "../../glfw/include"
     }
 
@@ -38,7 +38,7 @@ project "ImGui"
     links
     {
         "glfw",
-        "C:/VulkanSDK/1.3.231.1/Lib/vulkan-1.lib"
+        "%VULKAN_SDK%/Lib/vulkan-1.lib"
     }
 
 	optimize "Speed"
