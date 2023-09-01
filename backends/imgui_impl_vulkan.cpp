@@ -1340,6 +1340,9 @@ void ImGui_ImplVulkanH_CreateWindowSwapChain(VkPhysicalDevice physical_device, V
 
     // Create Swapchain
     {
+        VkSurfaceCapabilitiesKHR capabilities;
+        vkGetPhysicalDeviceSurfaceCapabilitiesKHR(physical_device, wd->Surface, &capabilities);
+
         VkSwapchainCreateInfoKHR info = {};
         info.sType = VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR;
         info.surface = wd->Surface;
@@ -1347,9 +1350,9 @@ void ImGui_ImplVulkanH_CreateWindowSwapChain(VkPhysicalDevice physical_device, V
         info.imageFormat = wd->SurfaceFormat.format;
         info.imageColorSpace = wd->SurfaceFormat.colorSpace;
         info.imageArrayLayers = 1;
-        info.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT;
+        info.imageUsage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT; 
         info.imageSharingMode = VK_SHARING_MODE_EXCLUSIVE;           // Assume that graphics family == present family
-        info.preTransform = VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR;
+        info.preTransform = capabilities.currentTransform; // VK_SURFACE_TRANSFORM_IDENTITY_BIT_KHR;
         info.compositeAlpha = VK_COMPOSITE_ALPHA_OPAQUE_BIT_KHR;
         info.presentMode = wd->PresentMode;
         info.clipped = VK_TRUE;
