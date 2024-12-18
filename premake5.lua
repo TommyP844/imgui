@@ -24,3 +24,10 @@ project "ImGui"
 	optimize "Speed"
 	floatingpoint "Fast"
 	intrinsics "On"
+
+    filter { "configurations:Debug" }
+        buildoptions {"/MTd"}
+
+    filter {"configurations:Release"}
+        buildoptions {"/MT"}
+
