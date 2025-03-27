@@ -3,12 +3,12 @@ project "ImGui"
 	kind "StaticLib"
 	location ""
 	cppdialect "C++20"
+    architecture "x64"
 
 	files
 	{
         "imgui.h",
-        "imgui_stdlib.h",
-        "imgui_config.h",
+        "imonfig.h",
         "imgui_internal.h",
         "imstb_rectpack.h",
         "imstb_truetype.h",
@@ -26,8 +26,8 @@ project "ImGui"
 	intrinsics "On"
 
     filter { "configurations:Debug" }
-        buildoptions {"/MTd"}
+        buildoptions {"/MDd"}
 
     filter {"configurations:Release"}
-        buildoptions {"/MT"}
+        buildoptions {"/MD"}
 
