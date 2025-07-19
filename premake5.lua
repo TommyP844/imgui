@@ -1,9 +1,11 @@
 project "ImGui"
 	language "C++"
 	kind "StaticLib"
-	location ""
 	cppdialect "C++20"
     architecture "x64"
+    staticruntime "Off"
+    targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")
+    objdir    ("%{wks.location}/bin-int/" .. outputdir .. "/%{prj.name}")
    
 	files
 	{
@@ -30,8 +32,8 @@ project "ImGui"
 	intrinsics "On"
 
     filter { "configurations:Debug" }
-        buildoptions {"/MTd"}
+        runtime "Debug"
 
     filter {"configurations:Release"}
-        buildoptions {"/MT"}
+        runtime "Release"
 
