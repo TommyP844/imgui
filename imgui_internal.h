@@ -231,7 +231,11 @@ namespace ImStb
 #undef IMSTB_TEXTEDIT_STRING
 #undef IMSTB_TEXTEDIT_CHARTYPE
 #define IMSTB_TEXTEDIT_STRING             ImGuiInputTextState
+#ifdef IMGUI_USE_WCHAR32 
 #define IMSTB_TEXTEDIT_CHARTYPE           ImWchar
+#else
+#define IMSTB_TEXTEDIT_CHARTYPE           char
+#endif
 #define IMSTB_TEXTEDIT_GETWIDTH_NEWLINE   (-1.0f)
 #define IMSTB_TEXTEDIT_UNDOSTATECOUNT     99
 #define IMSTB_TEXTEDIT_UNDOCHARCOUNT      999
