@@ -21,12 +21,15 @@ project "ImGui"
         "imstb_rectpack.h",
         "imstb_truetype.h",
         "imstb_textedit.h",
+        "imgui_stacklayout.h",
+        "imgui_stacklayout_internal.h",
 
         "imgui.cpp",
         "imgui_demo.cpp",
         "imgui_draw.cpp",
         "imgui_tables.cpp",
         "imgui_widgets.cpp",
+        "imgui_stacklayout.cpp",
 
         "misc/cpp/imgui_stdlib.h",
         "misc/cpp/imgui_stdlib.cpp",
